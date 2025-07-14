@@ -20,13 +20,7 @@ end]]
 
 
 function PLUGIN:PreInstall(ctx)
-  if not ctx then
-    error("PreInstall: ctx is nil!")
-  end
-  for k, v in pairs(ctx) do
-    print("ctx." .. tostring(k) .. " = " .. tostring(v))
-  end
-
+  
   local version = ctx.version
   --[[local os = jit.os:lower()
   local arch = jit.arch
