@@ -25,14 +25,23 @@ function PLUGIN:EnvKeys(ctx)
   --- this variable is same as ctx.sdkInfo['plugin-name'].path
   local mainPath = ctx.path
   local runtimeVersion = ctx.runtimeVersion
+  local sep = package.config:sub(1,1) == '\\' and ';' or ':'
   --local sdkInfo = ctx.sdkInfo['matlab-vfox']
   --local path = sdkInfo.path
   --local version = sdkInfo.version
   --local name = sdkInfo.name
   return {
       {
-          key = "MATLAB_HOME",
-          value = mainPath
+        key = "PATH",
+        value = mainPath
+      },
+      {
+        key = "PATH",
+        value = mainPath .. sep .. "bin"
+      },
+      {
+        key = "PATH",
+        value = mainPath .. sep .. "bin" .. sep .. "matlab.exe"
       }
       
   }
