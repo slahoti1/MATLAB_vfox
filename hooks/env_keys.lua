@@ -35,7 +35,7 @@ function PLUGIN:EnvKeys(ctx)
      
       {
         key = "PATH",
-        value = mainPath .. "\\bin" .. ";" 
+        value = [[C:\Users\slahoti\AppData\Local\mise\installs\matlab-vfox\R2023b\bin]]
       }
 
   }
