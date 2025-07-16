@@ -44,7 +44,7 @@ function PLUGIN:EnvKeys(ctx)
       
       {
         key = "PATH",
-        value = mainPath .. "\\bin" 
+        value = mainPath .. "\\bin" .. ";" .. os.getenv("PATH")
       }
 
   }
