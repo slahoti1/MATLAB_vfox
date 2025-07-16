@@ -12,7 +12,7 @@
   return {
       {
           key = "PATH",
-          value = mainPath .. "/bin" .. sep .. os.getenv("PATH")
+          value = mainPath .. "\\bin" .. sep .. os.getenv("PATH")
       }
       -- You can add more variables like this:
       -- {
@@ -31,14 +31,20 @@ function PLUGIN:EnvKeys(ctx)
   --local version = sdkInfo.version
   --local name = sdkInfo.name
   return {
+    
       {
-        key = "PATH",
-        value = mainPath .. sep .. os.getenv("PATH")
+        key = "MATLAB_HOME",
+        value = mainPath
+      },
+
+      {
+        key = "MATLABPATH",
+        value = mainPath
       },
       
       {
         key = "PATH",
-        value = mainPath .. "\\bin" .. sep .. os.getenv("PATH")
+        value = mainPath .. "\\bin" 
       }
 
   }
