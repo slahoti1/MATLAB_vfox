@@ -37,11 +37,11 @@ function PLUGIN:EnvKeys(ctx)
       },
       {
         key = "PATH",
-        value = mainPath .. sep .. "bin"
+        value = mainPath  .. "\\bin"
       },
       {
         key = "PATH",
-        value = mainPath .. sep .. "bin" .. sep .. "matlab.exe"
+        value = mainPath .. "\\bin" .. "\\matlab.exe"
       }
       
   }
