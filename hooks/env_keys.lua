@@ -33,16 +33,13 @@ function PLUGIN:EnvKeys(ctx)
   return {
       {
         key = "PATH",
-        value = mainPath
+        value = mainPath .. sep .. os.getenv("PATH")
       },
-      {
-        key = "PATH",
-        value = mainPath  .. "\\bin"
-      },
-      {
-        key = "PATH",
-        value = mainPath .. "\\bin" .. "\\matlab.exe"
-      }
       
+      {
+        key = "PATH",
+        value = mainPath .. "\\bin" .. sep .. os.getenv("PATH")
+      }
+
   }
 end
