@@ -32,16 +32,7 @@ function PLUGIN:EnvKeys(ctx)
   --local name = sdkInfo.name
   return {
     
-      {
-        key = "MATLAB_HOME",
-        value = mainPath
-      },
-
-      {
-        key = "MATLABPATH",
-        value = mainPath
-      },
-      
+     
       {
         key = "PATH",
         value = mainPath .. "\\bin" .. ";" 
