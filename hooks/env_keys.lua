@@ -26,16 +26,17 @@ function PLUGIN:EnvKeys(ctx)
   local mainPath = ctx.path
   local runtimeVersion = ctx.runtimeVersion
   local sep = package.config:sub(1,1) == '\\' and ';' or ':'
-  --local sdkInfo = ctx.sdkInfo['matlab-vfox']
-  --local path = sdkInfo.path
-  --local version = sdkInfo.version
-  --local name = sdkInfo.name
+  local sdkInfo = ctx.sdkInfo['matlab-vfox']
+  local path = sdkInfo.path
+  local version = sdkInfo.version
+  local name = sdkInfo.name
   return {
     
      
       {
         key = "PATH",
-        value = [[C:\Users\slahoti\AppData\Local\mise\installs\matlab-vfox\R2023b\bin]]
+        value = mainPath .. "\\bin"
+        --value = [[C:\Users\slahoti\AppData\Local\mise\installs\matlab-vfox\R2024a\bin]]
       }
 
   }
