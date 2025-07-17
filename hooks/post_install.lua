@@ -1,13 +1,7 @@
 --- Extension point, called after PreInstall, can perform additional operations,
 --- such as file operations for the SDK installation directory or compile source code
 --- Currently can be left unimplemented!
---[[function PLUGIN:PostInstall(ctx)
-  -- Example: print install directory (optional)
-  -- print("PostInstall: SDK installed at " .. ctx.rootPath)
 
-  -- Always return true to indicate success
-  return true
-end]]
 function PLUGIN:PostInstall(ctx)
   local sep = package.config:sub(1,1)
   local is_windows = sep == "\\"
@@ -24,6 +18,7 @@ function PLUGIN:PostInstall(ctx)
   -- Use the full path to mpm.exe
   --mpm_path = [[C:\\Users\\slahoti\\mpm.exe]]
 
+  mpm_path = [[C:\\Users\\slahoti\\AppData\\Local\\mise\\downloads\\matlab-vfox-R2025a\\mpm.exe]]
   -- Only quote the path, not the entire command
   local cmd = string.format('%s install --release=%s --destination=%s --products=%s', mpm_path, version, install_path, products)
   --local cmd = [[C:\Users\slahoti\mpm.exe install --release=R2024b --destination=.version-fox\plugin\matlab-vfox\matlab-install --products=MATLAB]]
