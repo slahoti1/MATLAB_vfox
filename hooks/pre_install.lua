@@ -44,8 +44,8 @@ else
 end
 
 return {
-    version = version,
-    url = mpm_url
+    version = version
+    --url = mpm_url
 }
 
 end
