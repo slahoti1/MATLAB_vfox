@@ -31,13 +31,15 @@ function PLUGIN:EnvKeys(ctx)
   local version = sdkInfo.version
   local name = sdkInfo.name
   return {
-    
-     
-      {
-        key = "PATH",
-        value = mainPath .. "\\bin"
-        --value = [[C:\Users\slahoti\AppData\Local\mise\installs\matlab-vfox\R2024a\bin]]
-      }
+    {
+      key = "PATH",
+      value = mainPath
+    },
+  
+    {
+      key = "PATH",
+      value = mainPath .. "\\bin"
+    }
 
   }
 end

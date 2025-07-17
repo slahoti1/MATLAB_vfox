@@ -22,7 +22,7 @@ end]]
 function PLUGIN:PreInstall(ctx)
   
   local version = ctx.version
-  --[[local os = jit.os:lower()
+  local os = jit.os:lower()
   local arch = jit.arch
   local mpm_url = ""
   local mpm_bin = "mpm"
@@ -37,18 +37,14 @@ function PLUGIN:PreInstall(ctx)
       end
   else
       mpm_url = "https://www.mathworks.com/mpm/win64/mpm"
-  end]]
+  end
 
-  mpm_url = "https://www.mathworks.com/mpm/win64/mpm"
+  --mpm_url = "https://www.mathworks.com/mpm/win64/mpm"
 
   return {
       version = version,
-      addition = {
-          {
-              name ="mpm.exe",
-              url = mpm_url
-          }
-      }
+      url = mpm_url
+      
   }
 end
 

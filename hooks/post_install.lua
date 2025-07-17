@@ -22,7 +22,7 @@ function PLUGIN:PostInstall(ctx)
   products = products:gsub(",", " ")
 
   -- Use the full path to mpm.exe
-  mpm_path = [[C:\\Users\\slahoti\\mpm.exe]]
+  --mpm_path = [[C:\\Users\\slahoti\\mpm.exe]]
 
   -- Only quote the path, not the entire command
   local cmd = string.format('%s install --release=%s --destination=%s --products=%s', mpm_path, version, install_path, products)
