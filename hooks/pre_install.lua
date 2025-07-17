@@ -21,39 +21,32 @@ end]]
 
 function PLUGIN:PreInstall(ctx)
     local version = ctx.version
-    local mpm_url = ""
-    local mpm_bin = "mpm"
-    
-    -- Detect OS using path separator
-    local sep = package.config:sub(1,1)
-    local os = ""
-    if sep == "\\" then
-        os = "windows"
-    else
-        local uname = io.popen("uname"):read("*l")
-        os = uname:lower()
-    end
-    
-    -- Detect architecture (optional fallback)
-    local arch = os.getenv("PROCESSOR_ARCHITECTURE") or ""
-    
-    -- Set URL based on OS
-    if os:find("linux") then
-        mpm_url = "https://www.mathworks.com/mpm/glnxa64/mpm"
-    elseif os:find("darwin") or os:find("mac") then
-        if arch == "arm64" then
-            mpm_url = "https://www.mathworks.com/mpm/maca64/mpm"
-        else
-            mpm_url = "https://www.mathworks.com/mpm/maci64/mpm"
-        end
-    else
-        mpm_url = "https://www.mathworks.com/mpm/win64/mpm"
-    end
-    
-    return {
-        version = version,
-        url = mpm_url
-    }
-    
+local mpm_url = ""
+
+-- Detect OS using path separator
+local sep = package.config:sub(1,1)
+local os = ""
+if sep == "\\" then
+    os = "windows"
+else
+    local uname = io.popen("uname"):read("*l")
+    os = uname:lower()
+end
+
+-- Set URL based on OS
+if os:find("linux") then
+    mpm_url = "https://www.mathworks.com/mpm/glnxa64/mpm"
+elseif os:find("darwin") or os:find("mac") then
+    -- Default to Intel macOS
+    mpm_url = "https://www.mathworks.com/mpm/maci64/mpm"
+else
+    mpm_url = "https://www.mathworks.com/mpm/win64/mpm"
+end
+
+return {
+    version = version,
+    url = mpm_url
+}
+
 end
 
