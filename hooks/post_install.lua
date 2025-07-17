@@ -9,16 +9,15 @@ function PLUGIN:PostInstall(ctx)
 
   local version = ctx.sdkInfo["matlab-vfox"].version
   local install_path = ctx.rootPath
-  local mpm_path = install_path .. sep .. mpm_bin
+  --local mpm_path = install_path .. sep .. mpm_bin
 
   --local products = os.getenv("MATLAB_TOOLBOXES") or "MATLAB"
   local products = "MATLAB"
   products = products:gsub(",", " ")
 
   -- Use the full path to mpm.exe
-  --mpm_path = [[C:\\Users\\slahoti\\mpm.exe]]
+  mpm_path = [[C:\\Users\\slahoti\\mpm.exe]]
 
-  mpm_path = [[C:\\Users\\slahoti\\AppData\\Local\\mise\\downloads\\matlab-vfox-R2025a\\mpm.exe]]
   -- Only quote the path, not the entire command
   local cmd = string.format('%s install --release=%s --destination=%s --products=%s', mpm_path, version, install_path, products)
   --local cmd = [[C:\Users\slahoti\mpm.exe install --release=R2024b --destination=.version-fox\plugin\matlab-vfox\matlab-install --products=MATLAB]]
