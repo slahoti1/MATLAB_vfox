@@ -12,7 +12,8 @@ function PLUGIN:PostInstall(ctx)
   products = products:gsub(",", " ")
 
   -- Set mpm path based on OS
-  local mpm_path = is_windows and [[C:\Users\slahoti\mpm.exe]] or "mpm"
+  --local mpm_path = is_windows and [[C:\Users\slahoti\mpm.exe]] or "mpm"
+  local mpm_path = "mpm"
 
   -- Build the install command
   local cmd = string.format('%s install --release=%s --destination=%s --products=%s', mpm_path, version, install_path, products)
