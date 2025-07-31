@@ -22,29 +22,24 @@
   }
 end]]
 function PLUGIN:EnvKeys(ctx)
+  --- this variable is same as ctx.sdkInfo['plugin-name'].path
   local mainPath = ctx.path
   local runtimeVersion = ctx.runtimeVersion
-  local isWindows = package.config:sub(1,1) == '\\'
+  local sep = package.config:sub(1,1) == '\\' and ';' or ':'
   local sdkInfo = ctx.sdkInfo['matlab-vfox']
   local path = sdkInfo.path
   local version = sdkInfo.version
   local name = sdkInfo.name
-
-  local binPath
-  if isWindows then
-    binPath = mainPath .. "\\bin"
-  else
-    binPath = mainPath .. "/bin"
-  end
-
   return {
     {
       key = "PATH",
       value = mainPath
     },
+  
     {
       key = "PATH",
-      value = binPath
+      value = mainPath .. "\\bin"
     }
+
   }
 end

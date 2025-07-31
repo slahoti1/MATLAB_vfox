@@ -8,7 +8,13 @@ function PLUGIN:PostInstall(ctx)
 
   local version = ctx.sdkInfo["matlab-vfox"].version
   local install_path = ctx.rootPath
+
+  -- Get toolboxes from environment variable
+  local toolboxes_env = os.getenv("MATLAB_TOOLBOXES")
   local products = "MATLAB"
+  if toolboxes_env and #toolboxes_env > 0 then
+    products = products .. "," .. toolboxes_env
+  end
   products = products:gsub(",", " ")
 
   -- Set mpm path based on OS
@@ -26,5 +32,4 @@ function PLUGIN:PostInstall(ctx)
   end
 
   return true
-
 end
